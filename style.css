@@ -140,6 +140,11 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Disable text selection only on interactive UI elements */
+button, .dock-item, .dock, .navbar, .lang-switch-pill,
+.theme-toggle-btn, .cta-btn, .skill-badge, .window-dot {
   user-select: none;
 }
 
