@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
           : 'Tip: Switch to Dark Mode for the best glassmorphism experience!',
         'warning',
         0,
-        6000
+        10000
       );
     } else {
       showToast(
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
           : 'For the best glassmorphism visual experience, please use Dark Mode.',
         'info',
         0,
-        6000
+        10000
       );
     }, 3500);
   }
