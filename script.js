@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         isKh 
           ? 'ណែនាំ៖ ប្រើប្រាស់ Dark Mode ដើម្បីទទួលបានរូបភាពកញ្ចក់ថ្លាល្អបំផុត!'
           : 'Tip: Switch to Dark Mode for the best glassmorphism experience!',
-        'warning'
+        'warning',
+        0,
+        6000
       );
     } else {
       showToast(
@@ -46,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         isKh 
           ? 'ដើម្បីទទួលបានបទពិសោធន៍មើលឃើញប្លង់កញ្ចក់ថ្លាល្អបំផុត សូមប្រើប្រាស់ Dark Mode។'
           : 'For the best glassmorphism visual experience, please use Dark Mode.',
-        'info'
+        'info',
+        0,
+        6000
       );
     }, 3500);
   }
@@ -639,7 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Toast Notification System ---
-  function showToast(title, description, type = 'success', delay = 0) {
+  function showToast(title, description, type = 'success', delay = 0, duration = 4000) {
     if (typeof type === 'number') {
       delay = type;
       type = 'success';
@@ -675,7 +679,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         toast.classList.remove('show');
         setTimeout(() => toast.remove(), 600);
-      }, 4000);
+      }, duration);
     }, delay);
   }
 
