@@ -2,951 +2,947 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Penhpich Bormey - Mobile Portfolio</title>
-  <meta name="description" content="Personal portfolio of Penhpich Bormey - MIS Student, Web Developer, and Telegram Bot Creator built with a clean white × navy blue mobile-app UI.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penhpich Bormey - Personal Portfolio</title>
+  <meta name="description" content="Personal portfolio of Penhpich Bormey - MIS Student, Web Developer, and Telegram Bot Creator built with premium glassmorphism.">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
-<body data-theme="light">
+<body>
 
   <!-- Loading Splash Screen -->
   <div id="loader-screen">
-    <div class="loader-logo">PB</div>
-    <div class="loader-name">PENHPICH BORMEY</div>
-    <div class="loader-bar-track">
-      <div class="loader-bar-fill"></div>
+    <div class="loader-container">
+      <div class="loader-ring"></div>
+      <div class="loader-text" data-text="BORMEY.DEV">BORMEY.DEV</div>
+      <div class="loader-progress">0%</div>
     </div>
-    <span class="loader-pct loader-progress">0%</span>
   </div>
 
   <!-- Interactive Cursor Glow Background -->
   <div id="cursor-glow"></div>
 
-  <!-- Background Blobs -->
-  <div class="bg-blob-container">
-    <div class="bg-blob bg-blob-1"></div>
-    <div class="bg-blob bg-blob-2"></div>
-    <div class="bg-blob bg-blob-3"></div>
+  <!-- Ambient Liquid Gradient Blobs -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
   </div>
 
-  <!-- APP SHELL -->
-  <div class="app-shell">
-    
-    <!-- TOP BAR -->
-    <header class="top-bar">
-      <div class="top-bar-left">
-        <div class="top-bar-logo">PB</div>
-        <div class="top-bar-name">Bormey</div>
+  <!-- Canvas Particles Overlay -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Glass Floating Navbar -->
+  <nav class="navbar" id="top-nav">
+    <div class="nav-brand">BORMEY.DEV</div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active" data-i18n="home">Home</a></li>
+      <li><a href="#about" data-i18n="about">About</a></li>
+      <li><a href="#skills" data-i18n="skills">Skills</a></li>
+      <li><a href="#projects" data-i18n="projects">Projects</a></li>
+      <li><a href="#resume" data-i18n="resume">Resume</a></li>
+      <li><a href="#contact" data-i18n="contact">Contact</a></li>
+      <li class="nav-divider"></li>
+      <li><a href="./cybertools/index.html">CyberTools</a></li>
+    </ul>
+    <div class="nav-divider"></div>
+    <!-- Language Toggle Pill -->
+    <div class="lang-switch-pill" id="lang-switch-container">
+      <button class="lang-pill-btn active" id="lang-btn-en" data-lang="en">EN</button>
+      <button class="lang-pill-btn" id="lang-btn-kh" data-lang="kh">KH</button>
+    </div>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+      <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="moon-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+  </nav>
+
+  <!-- =============================================
+     1. HOME SECTION (HERO CARD + WEATHER + STATS)
+     ============================================= -->
+  <section class="section-container visible" id="home">
+    <div class="main-glass-card">
+      <div class="card-noise"></div>
+
+      <!-- Profile Avatar Section -->
+      <div class="profile-container">
+        <div class="avatar-wrapper">
+          <div class="avatar-ring"></div>
+          <div class="avatar-glow"></div>
+          <img src="avatar.png" alt="Penhpich Bormey" class="avatar-img">
+        </div>
+        <!-- Status Indicator / Online Badge -->
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span class="status-text">Open to Projects & Collaborations</span>
+        </div>
       </div>
-      <div class="top-bar-right">
-        <div class="theme-toggle-pill">
-          <button class="theme-pill-btn active" id="btn-theme-light" title="Light Theme">☀️</button>
-          <button class="theme-pill-btn" id="btn-theme-dark" title="Dark Theme">🌙</button>
+
+      <!-- Hero Greeting Header -->
+      <header>
+        <span class="sec-subtitle" data-i18n="hello">Hello, I'm</span>
+        <h1 class="name-heading" data-i18n="name">PENHPICH BORMEY</h1>
+        <div class="roles-container">
+          <span class="role-tag" data-i18n="role1">MIS Student</span>
+          <span class="role-tag" data-i18n="role2">Web Developer</span>
+          <span class="role-tag" data-i18n="role3">Telegram Bot Creator</span>
         </div>
-        <button class="top-bar-btn" id="top-bell-btn" title="Notifications">
-          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <span class="bell-badge">2</span>
-        </button>
-        <div class="top-bar-avatar">
-          <img src="avatar.png" alt="Penhpich Bormey">
+        <p class="description-text" data-i18n="heroDesc">
+          I build modern websites, AI-powered tools, and Telegram bots. Passionate about technology, design, and creating digital experiences that solve real-world problems.
+        </p>
+      </header>
+
+      <!-- Glass Social Capsule Buttons -->
+      <div class="social-row">
+        <a href="https://t.me/ShennCelest" target="_blank" class="social-btn" aria-label="Telegram Profile">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15.98-.79 4.79-1.12 6.52-.14.73-.41.97-.67 1.00-.57.05-1.00-.38-1.55-.74-.86-.57-1.35-.92-2.18-1.47-.96-.64-.34-.99.21-1.56.14-.15 2.65-2.43 2.70-2.65.01-.03.01-.13-.05-.18-.06-.05-.15-.03-.21-.02-.09.02-1.5 0.95-4.24 2.80-.4.28-.76.41-1.08.40-.36-.01-1.04-.20-1.55-.37-.62-.20-1.11-.31-1.07-.66.02-.18.27-.37.75-.56 2.93-1.28 4.88-2.12 5.85-2.52 2.78-1.16 3.36-1.36 3.74-1.36.08 0 .27.02.39.12.10.08.13.19.14.28-.01.06.01.21 0 .28z"/></svg>
+          <span>Telegram</span>
+        </a>
+        <a href="https://github.com" target="_blank" class="social-btn" aria-label="GitHub Profile">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.197 22 16.44 22 12.017 22 6.484 17.522 2 12 2z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://facebook.com" target="_blank" class="social-btn" aria-label="Facebook Profile">
+          <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn Profile">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+
+      <!-- Action Buttons Row -->
+      <div class="actions-row" style="display: flex; gap: 16px; margin-top: 8px; width: 100%; justify-content: center; flex-wrap: wrap; z-index: 2;">
+        <a href="#projects" class="cta-btn secondary-cta">
+          <span data-i18n="viewProjects">View Projects</span>
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </a>
+        <a href="#resume" class="cta-btn secondary-cta">
+          <span data-i18n="downloadCv">Download CV</span>
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+        <a href="#contact" class="cta-btn" id="contact-cta">
+          <span data-i18n="contactMe">Contact Me</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Apple-style Phnom Penh Weather Widget -->
+      <div class="weather-widget">
+        <div class="weather-left">
+          <div class="weather-city">Phnom Penh</div>
+          <div class="weather-condition">Humid & Hot</div>
+          <div class="weather-temp-wrap">
+            <span class="weather-temp">32</span>
+            <span class="weather-unit">°C</span>
+          </div>
+        </div>
+        <div class="weather-right">
+          <div class="weather-forecast-row">
+            <span class="weather-day">Today</span>
+            <svg class="weather-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <span class="weather-range">34° / 26°</span>
+          </div>
+          <div class="weather-forecast-row">
+            <span class="weather-day">Fri</span>
+            <svg class="weather-icon-svg" viewBox="0 0 24 24"><path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/><line x1="8" y1="16" x2="8" y2="22"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="16" y1="16" x2="16" y2="22"/></svg>
+            <span class="weather-range">30° / 24°</span>
+          </div>
+          <div class="weather-forecast-row">
+            <span class="weather-day">Sat</span>
+            <span class="weather-icon-svg" style="font-size:14px; display:inline-flex; align-items:center; justify-content:center;">🌤️</span>
+            <span class="weather-range">35° / 27°</span>
+          </div>
         </div>
       </div>
-    </header>
 
-    <!-- VIEWPORT PANELS -->
-    <main class="viewport">
-
-      <!-- PANEL 1: DASHBOARD (Home) -->
-      <section class="viewport-panel active" id="panel-dashboard">
-        <!-- Profile Hero Card -->
-        <div class="profile-hero-card">
-          <div class="profile-hero-top">
-            <div class="profile-hero-avatar">
-              <img src="avatar.png" alt="Penhpich Bormey">
-            </div>
-            <div>
-              <h1 class="profile-hero-name">Penhpich Bormey</h1>
-              <div class="profile-hero-role">MIS Student · Web Dev · Bot Creator</div>
-              <div class="profile-hero-badge">
-                <span class="hero-dot"></span>
-                <span>Open to Work</span>
-              </div>
-            </div>
-          </div>
-          <!-- Stats Row inside Hero -->
-          <div class="profile-hero-stats">
-            <div class="hero-stat">
-              <span class="hero-stat-num">12+</span>
-              <span class="hero-stat-lbl">Projects</span>
-            </div>
-            <div class="hero-stat">
-              <span class="hero-stat-num">3+</span>
-              <span class="hero-stat-lbl">Bots Built</span>
-            </div>
-            <div class="hero-stat">
-              <span class="hero-stat-num">2</span>
-              <span class="hero-stat-lbl">Stacks</span>
-            </div>
-          </div>
-          <!-- Tags -->
-          <div class="profile-hero-tags">
-            <span class="hero-role-tag">🎓 MIS Student</span>
-            <span class="hero-role-tag">💻 Web Dev</span>
-            <span class="hero-role-tag">🤖 Bot Creator</span>
-          </div>
-          <!-- Greeting Typewriter (Hidden but present for script.js) -->
-          <span id="greeting-typewriter" style="display:none;"></span>
+      <!-- Dashboard Stats -->
+      <section class="stats-grid" style="margin-top:24px; margin-bottom: 0;">
+        <div class="stat-card">
+          <span class="stat-num" id="stat-projects">0+</span>
+          <span class="stat-label">Projects Completed</span>
         </div>
-
-        <!-- Quick Actions Row -->
-        <div class="quick-actions-row">
-          <button class="quick-action-btn" id="action-message" title="Chat on Telegram">
-            <div class="quick-action-icon blue">💬</div>
-            <span class="quick-action-lbl">Message</span>
-          </button>
-          <button class="quick-action-btn" id="action-email" title="Send Email">
-            <div class="quick-action-icon navy">📧</div>
-            <span class="quick-action-lbl">Email</span>
-          </button>
-          <button class="quick-action-btn" id="action-cv" title="Copy Resume JSON">
-            <div class="quick-action-icon green">📄</div>
-            <span class="quick-action-lbl">Get CV</span>
-          </button>
-          <button class="quick-action-btn" id="action-share" title="Copy Portfolio Link">
-            <div class="quick-action-icon purple">🔗</div>
-            <span class="quick-action-lbl">Share</span>
-          </button>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-websites">0+</span>
+          <span class="stat-label">Website Designs</span>
         </div>
-
-        <!-- Meta Info Row -->
-        <div class="meta-info-row">
-          <div class="meta-info-item">
-            <span id="live-clock-display">🕐 --:--:--</span>
-          </div>
-          <div class="meta-info-item">
-            <span class="meta-live-dot"></span>
-            <span>Bot Server 99.9%</span>
-          </div>
-          <div class="meta-info-item">
-            <span>⚡ API <span id="api-latency-val">12ms</span></span>
-          </div>
-        </div>
-
-        <!-- Activity Section -->
-        <div class="activity-section">
-          <div class="activity-header">
-            <h2 class="activity-title">Recent Activity</h2>
-            <span class="activity-see-all">See All</span>
-          </div>
-          <div class="activity-list">
-            <div class="activity-item">
-              <div class="activity-item-icon blue">🚀</div>
-              <div class="activity-item-info">
-                <div class="activity-item-title">MeyTool Suite Launched</div>
-                <div class="activity-item-desc">All-in-one web tools hub</div>
-              </div>
-              <span class="activity-item-time">Today</span>
-              <svg class="activity-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
-            <div class="activity-item">
-              <div class="activity-item-icon navy">🤖</div>
-              <div class="activity-item-info">
-                <div class="activity-item-title">AI Bot Updated</div>
-                <div class="activity-item-desc">Telegram assistant v2.1</div>
-              </div>
-              <span class="activity-item-time">Yesterday</span>
-              <svg class="activity-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
-            <div class="activity-item">
-              <div class="activity-item-icon green">💡</div>
-              <div class="activity-item-info">
-                <div class="activity-item-title">New Project Started</div>
-                <div class="activity-item-desc">Certificate verifier app</div>
-              </div>
-              <span class="activity-item-time">3 days ago</span>
-              <svg class="activity-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
-          </div>
-        </div>
-
-        <!-- Chart Card -->
-        <div class="chart-card">
-          <div class="chart-card-header">
-            <span class="chart-card-title">Data Insights</span>
-            <span class="chart-card-badge">↑ Growing</span>
-          </div>
-          <svg class="sparkline-svg" viewBox="0 0 300 64" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="sparkGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#1A237E" stop-opacity="0.2"/>
-                <stop offset="100%" stop-color="#1A237E" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path class="sparkline-area" d="M0,50 C30,45 60,35 90,30 C120,25 150,40 180,20 C210,10 240,15 270,8 L300,5 L300,64 L0,64 Z"/>
-            <path class="sparkline-line" d="M0,50 C30,45 60,35 90,30 C120,25 150,40 180,20 C210,10 240,15 270,8 L300,5"/>
-            <circle class="sparkline-dot" cx="300" cy="5" r="4"/>
-          </svg>
-          <div class="chart-labels">
-            <span class="chart-label">Mon</span>
-            <span class="chart-label">Tue</span>
-            <span class="chart-label">Wed</span>
-            <span class="chart-label">Thu</span>
-            <span class="chart-label">Fri</span>
-            <span class="chart-label">Sat</span>
-            <span class="chart-label">Sun</span>
-          </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-bots">0+</span>
+          <span class="stat-label">Telegram Bots</span>
         </div>
       </section>
 
-      <!-- PANEL 2: ABOUT -->
-      <section class="viewport-panel" id="panel-about">
-        <div class="section-header">
-          <div class="section-label">Who I Am</div>
-          <h2 class="section-title">About Me</h2>
+      <!-- Extra dashboard meta rows -->
+      <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:16px; width:100%; margin-top:16px;">
+        <div class="stat-card" style="padding:16px; flex-direction:row; justify-content:space-between; align-items:center;">
+          <div style="text-align:left;">
+            <div class="info-label">Visitor Tracking</div>
+            <div class="stat-num" style="font-size:1.4rem; margin-top:2px;">1,253</div>
+          </div>
+          <span class="info-label" style="background:var(--accent-glow); color:var(--accent-color); padding:4px 8px; border-radius:6px;">Global Views</span>
         </div>
-
-        <!-- About Profile Card -->
-        <div class="about-profile-card">
-          <div class="about-avatar-wrap">
-            <div class="about-avatar-ring-spin"></div>
-            <img src="avatar.png" alt="Penhpich Bormey" class="about-avatar-img">
+        <div class="stat-card" style="padding:16px; flex-direction:row; justify-content:space-between; align-items:center;">
+          <div style="text-align:left;">
+            <div class="info-label">Learning Log</div>
+            <div class="stat-num" style="font-size:1.4rem; margin-top:2px;" id="stat-hours">0+</div>
           </div>
-          <div class="about-card-info">
-            <h3 class="about-card-name">Penhpich Bormey</h3>
-            <p class="about-card-title">MIS Student · Web Developer · Bot Creator</p>
-            <div class="about-card-status">
-              <span class="hero-dot"></span>
-              <span>Open to Projects</span>
-            </div>
-          </div>
+          <span class="info-label" style="background:var(--accent-glow); color:var(--accent-color); padding:4px 8px; border-radius:6px;">Hours Study</span>
         </div>
+      </div>
 
-        <!-- About Stats Row -->
-        <div class="about-stats-row">
-          <div class="about-stat-card">
-            <span class="about-stat-num">12+</span>
-            <span class="about-stat-lbl">Projects</span>
-          </div>
-          <div class="about-stat-card">
-            <span class="about-stat-num">3+</span>
-            <span class="about-stat-lbl">Bots Built</span>
-          </div>
-          <div class="about-stat-card">
-            <span class="about-stat-num">2</span>
-            <span class="about-stat-lbl">Stacks</span>
-          </div>
-        </div>
+    </div>
+  </section>
 
-        <!-- Bio Card -->
-        <div class="bio-card">
-          <h4 class="bio-title">Student & Digital Developer</h4>
-          <p class="bio-text">
-            I am a Management Information Systems (MIS) student passionate about web development, artificial intelligence, UI/UX design, and Telegram bot creation. I build digital products that help people work smarter and look great doing it.
+  <!-- =============================================
+     2. ABOUT ME SECTION (BIO + INFO + ACHIEVEMENTS)
+     ============================================= -->
+  <section class="section-container" id="about">
+    <div class="section-card">
+      <div class="section-title-wrap">
+        <span class="sec-subtitle">Who I Am</span>
+        <h2 class="sec-title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+        <div style="text-align: left; line-height: 1.6; color: var(--text-secondary);">
+          <h3 style="font-family:var(--font-heading); font-size:1.25rem; font-weight:700; color:var(--text-primary); margin-bottom:8px;">Student & Digital Developer</h3>
+          <p>
+            I am a Management Information Systems (MIS) student passionate about web development, artificial intelligence, user interface design, and Telegram bot creation. I enjoy learning new technologies and building useful digital products that help people work smarter.
           </p>
         </div>
 
-        <!-- Settings List (Personal Info) -->
-        <div class="settings-list">
-          <div class="settings-list-header">Personal Info</div>
-          
-          <div class="settings-row">
-            <div class="settings-row-icon purple">📛</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Name</span>
-              <span class="settings-row-sub">Penhpich Bormey</span>
-            </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <!-- Info Grid -->
+        <div class="info-cards-list">
+          <div class="info-item">
+            <span class="info-label">Name</span>
+            <span class="info-value">PENHPICH BORMEY</span>
           </div>
-
-          <div class="settings-row">
-            <div class="settings-row-icon blue">🎓</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Education</span>
-              <span class="settings-row-sub">MIS — Information Systems</span>
-            </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          <div class="info-item">
+            <span class="info-label">Education</span>
+            <span class="info-value" style="font-size:0.85rem;">MIS (Information Systems)</span>
           </div>
-
-          <div class="settings-row">
-            <div class="settings-row-icon navy">💻</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Role</span>
-              <span class="settings-row-sub">Student & Developer</span>
-            </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          <div class="info-item">
+            <span class="info-label">Role</span>
+            <span class="info-value">Student & Developer</span>
           </div>
-
-          <div class="settings-row">
-            <div class="settings-row-icon tg">🌐</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Languages</span>
-              <span class="settings-row-sub">Khmer · English</span>
-            </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          <div class="info-item">
+            <span class="info-label">Languages</span>
+            <span class="info-value">Khmer, English</span>
           </div>
+        </div>
+      </div>
 
-          <div class="settings-row">
-            <div class="settings-row-icon loc">📍</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Location</span>
-              <span class="settings-row-sub">Phnom Penh, Cambodia</span>
-            </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      <!-- Achievements Panel -->
+      <div class="achievements-container">
+        <div class="achievement-card">
+          <div class="ach-icon-wrap">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
           </div>
+          <div class="ach-content">
+            <h3>Built Multiple Websites</h3>
+            <p>Designed and deployed diverse portfolio projects and digital stores from scratch.</p>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="ach-icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="ach-content">
+            <h3>Created Telegram Bots</h3>
+            <p>Programmed automation assistants, chatbots, and APIs using Telegram API standards.</p>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="ach-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </div>
+          <div class="ach-content">
+            <h3>Learning AI Development</h3>
+            <p>Integrating automation and prompt engineering to improve user workflows.</p>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="ach-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="ach-content">
+            <h3>MIS Student Developer</h3>
+            <p>Bridging technology with business analytics to construct structured platforms.</p>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="ach-icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/></svg>
+          </div>
+          <div class="ach-content">
+            <h3>UI/UX Enthusiast</h3>
+            <p>Crafting sleek design paradigms with premium glassmorphism layouts.</p>
+          </div>
+        </div>
+      </div>
 
-          <a href="mailto:pichpenhbormey383@gmail.com" class="settings-row">
-            <div class="settings-row-icon email">📧</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Email</span>
-              <span class="settings-row-sub">pichpenhbormey383@gmail.com</span>
+    </div>
+  </section>
+
+  <!-- =============================================
+     3. SKILLS SECTION (TAGS + PERFORMANCE BARS)
+     ============================================= -->
+  <section class="section-container" id="skills">
+    <div class="section-card">
+      <div class="section-title-wrap">
+        <span class="sec-subtitle">My Stack</span>
+        <h2 class="sec-title">My Skills</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skills-category">
+          <h3>Frontend</h3>
+          <div class="skills-list">
+            <span class="skill-badge" data-skill="html">HTML5</span>
+            <span class="skill-badge" data-skill="css">CSS3</span>
+            <span class="skill-badge" data-skill="js">JavaScript (ES6+)</span>
+            <span class="skill-badge" data-skill="css">Responsive Design</span>
+            <span class="skill-badge" data-skill="css">Glassmorphism UI</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3>Backend & API</h3>
+          <div class="skills-list">
+            <span class="skill-badge" data-skill="php">PHP</span>
+            <span class="skill-badge" data-skill="python">Python</span>
+            <span class="skill-badge" data-skill="telegram">API Integration</span>
+            <span class="skill-badge" data-skill="sql">SQL</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3>Telegram Bot API</h3>
+          <div class="skills-list">
+            <span class="skill-badge" data-skill="telegram">Automation Systems</span>
+            <span class="skill-badge" data-skill="telegram">Chatbots</span>
+            <span class="skill-badge" data-skill="telegram">API Webhooks</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3>AI Skills</h3>
+          <div class="skills-list">
+            <span class="skill-badge" data-skill="ai">Prompt Engineering</span>
+            <span class="skill-badge" data-skill="ai">AI Integration</span>
+            <span class="skill-badge" data-skill="ai">Automation Tools</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proficiency Progress Bars -->
+      <div class="proficiencies-card">
+        <h3>Proficiency Overview</h3>
+        <div class="prof-bars-list">
+          <div class="prof-item">
+            <div class="prof-meta">
+              <span>HTML</span>
+              <span>95%</span>
             </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            <div class="prof-bar-track">
+              <div class="prof-bar-fill" data-percent="95%"></div>
+            </div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-meta">
+              <span>CSS</span>
+              <span>90%</span>
+            </div>
+            <div class="prof-bar-track">
+              <div class="prof-bar-fill" data-percent="90%"></div>
+            </div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-meta">
+              <span>JavaScript</span>
+              <span>85%</span>
+            </div>
+            <div class="prof-bar-track">
+              <div class="prof-bar-fill" data-percent="85%"></div>
+            </div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-meta">
+              <span>Python</span>
+              <span>80%</span>
+            </div>
+            <div class="prof-bar-track">
+              <div class="prof-bar-fill" data-percent="80%"></div>
+            </div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-meta">
+              <span>PHP</span>
+              <span>75%</span>
+            </div>
+            <div class="prof-bar-track">
+              <div class="prof-bar-fill" data-percent="75%"></div>
+            </div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-meta">
+              <span>Telegram Bot Development</span>
+              <span>90%</span>
+            </div>
+            <div class="prof-bar-track">
+              <div class="prof-bar-fill" data-percent="90%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+     4. PROJECTS SECTION (TABS + GRID)
+     ============================================= -->
+  <section class="section-container" id="projects">
+    <div class="section-card">
+      <div class="section-title-wrap">
+        <span class="sec-subtitle">Portfolio</span>
+        <h2 class="sec-title">Projects</h2>
+      </div>
+
+      <!-- Categories Filter Tabs -->
+      <div class="filter-nav">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="bot">Bot & AI</button>
+        <button class="filter-btn" data-filter="productivity">Productivity</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-category="bot" data-skill-linked="python,telegram,ai">
+          <div class="project-card-header">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">AI Telegram Assistant</h3>
+            <p class="project-desc">An intelligent Telegram bot capable of answering questions, generating content, and assisting users in real-time.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Telegram API</span>
+            <span class="project-tag">AI Integration</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-btn demo">
+              <span>Under Developer</span>
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+            <a href="#" class="project-btn git">
+              <span>Under Developer</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-category="frontend" data-skill-linked="html,css,js">
+          <div class="project-card-header">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Subscription Store</h3>
+            <p class="project-desc">A premium digital subscription marketplace website designed with advanced frosted glassmorphism themes.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">HTML5</span>
+            <span class="project-tag">CSS Variables</span>
+            <span class="project-tag">Vanilla JS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-btn demo">
+              <span>Under Developer</span>
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+            <a href="#" class="project-btn git">
+              <span>Under Developer</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-category="productivity" data-skill-linked="php,sql">
+          <div class="project-card-header">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Certificate Verifier</h3>
+            <p class="project-desc">Online certificate verification platform that validates credentials and generates unique verification IDs.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">PHP</span>
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">Bootstrap</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-btn demo">
+              <span>Under Developer</span>
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+            <a href="#" class="project-btn git">
+              <span>Under Developer</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" data-category="productivity" data-skill-linked="html,css,js">
+          <div class="project-card-header">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">All-in-One Tools Hub</h3>
+            <p class="project-desc">A comprehensive web tools collection comprising developer widgets, math solvers, and productivity modules.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-btn demo">
+              <span>Under Developer</span>
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+            <a href="#" class="project-btn git">
+              <span>Under Developer</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card" data-category="frontend" data-skill-linked="js,html,css">
+          <div class="project-card-header">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">CV Builder Platform</h3>
+            <p class="project-desc">Professional resume builder with downloadable templates, custom fields, and real-time frosted glass previews.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">HTML2PDF</span>
+            <span class="project-tag">CSS Grid</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-btn demo">
+              <span>Under Developer</span>
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+            <a href="#" class="project-btn git">
+              <span>Under Developer</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+     5. RESUME SECTION (ACTIONS + PAPER SHEET + TIMELINE)
+     ============================================= -->
+  <section class="section-container" id="resume">
+    <div class="section-card" style="background: none; border: none; box-shadow: none; padding: 0;">
+      
+      <!-- Sleek Consolidated Resume Toolbar -->
+      <div class="resume-toolbar">
+        <div class="resume-segment-control">
+          <div class="segment-pill" id="segment-active-pill"></div>
+          <button class="segment-btn active" id="btn-view-visual">Visual CV</button>
+          <button class="segment-btn" id="btn-view-terminal">Terminal JSON</button>
+        </div>
+
+        <div class="resume-toolbar-actions">
+          <a class="resume-action-btn" id="cv-download-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download</span>
           </a>
+          <button class="resume-action-btn" id="cv-print-btn">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span>Print</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Glass Resume Sheet -->
+      <div class="resume-sheet" id="resume-sheet-area">
+        <div class="resume-header">
+          <h3>PENHPICH BORMEY</h3>
+          <div class="resume-meta">MIS Student • Web Developer • Telegram Bot Creator • AI Enthusiast</div>
         </div>
 
-        <!-- Experience Timeline -->
-        <div class="timeline-section">
-          <h4 class="section-sub-title">Experience</h4>
-          <div class="timeline-list">
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-content">
-                <span class="tl-year">2026 – Present</span>
-                <h5 class="tl-role">MIS Student Developer</h5>
-                <p class="tl-desc">Building web apps, bots, and UI/UX projects as part of university coursework and personal projects.</p>
-              </div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-content">
-                <span class="tl-year">2023</span>
-                <h5 class="tl-role">Bot Developer</h5>
-                <p class="tl-desc">Developed automation bots and Telegram mini-apps serving real user communities.</p>
-              </div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-content">
-                <span class="tl-year">2026</span>
-                <h5 class="tl-role">Web Developer</h5>
-                <p class="tl-desc">Started mastering HTML, CSS, and JavaScript — built first portfolio and glassmorphism UI projects.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PANEL 3: SKILLS -->
-      <section class="viewport-panel" id="panel-skills">
-        <div class="section-header">
-          <div class="section-label">My Stack</div>
-          <h2 class="section-title">My Skills</h2>
-        </div>
-
-        <!-- Frontend Category Card -->
-        <div class="skills-category-card" id="skill-card-frontend">
-          <h3 class="skills-cat-title">
-            <span class="skills-cat-icon blue">🎨</span>
-            <span>Frontend</span>
-          </h3>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">HTML5</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="90%"></div>
-            </div>
-            <span class="skill-bar-pct">90%</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">CSS3</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="85%"></div>
-            </div>
-            <span class="skill-bar-pct">85%</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">JavaScript</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="80%"></div>
-            </div>
-            <span class="skill-bar-pct">80%</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">Responsive</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="88%"></div>
-            </div>
-            <span class="skill-bar-pct">88%</span>
-          </div>
-        </div>
-
-        <!-- Backend Category Card -->
-        <div class="skills-category-card" id="skill-card-backend">
-          <h3 class="skills-cat-title">
-            <span class="skills-cat-icon navy">⚙️</span>
-            <span>Backend & API</span>
-          </h3>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">PHP</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="70%"></div>
-            </div>
-            <span class="skill-bar-pct">70%</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">Python</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="65%"></div>
-            </div>
-            <span class="skill-bar-pct">65%</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">SQL</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="72%"></div>
-            </div>
-            <span class="skill-bar-pct">72%</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">APIs</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="78%"></div>
-            </div>
-            <span class="skill-bar-pct">78%</span>
-          </div>
-        </div>
-
-        <!-- Tools Category Card -->
-        <div class="skills-category-card" id="skill-card-tools">
-          <h3 class="skills-cat-title">
-            <span class="skills-cat-icon purple">🛠️</span>
-            <span>Tools & DevOps</span>
-          </h3>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">Git</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="75%"></div>
-            </div>
-            <span class="skill-bar-pct">75%</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">VS Code</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="95%"></div>
-            </div>
-            <span class="skill-bar-pct">95%</span>
-          </div>
-          <div class="skill-bar-item">
-            <span class="skill-bar-name">Figma</span>
-            <div class="skill-bar-track">
-              <div class="skill-bar-fill prof-bar-fill" data-percent="60%"></div>
-            </div>
-            <span class="skill-bar-pct">60%</span>
-          </div>
-        </div>
-
-        <!-- Soft Skills / Specialties -->
-        <div class="skills-category-card" id="skill-card-specialties">
-          <h3 class="skills-cat-title">
-            <span class="skills-cat-icon green">💡</span>
-            <span>Specialties</span>
-          </h3>
-          <div class="skill-tags-wrap">
-            <span class="skill-tag">Glassmorphism UI</span>
-            <span class="skill-tag">Telegram Bots</span>
-            <span class="skill-tag">Bot Automation</span>
-            <span class="skill-tag">Prompt Engineering</span>
-            <span class="skill-tag">UI/UX Design</span>
-            <span class="skill-tag">REST APIs</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- PANEL 4: PROJECTS -->
-      <section class="viewport-panel" id="panel-projects">
-        <div class="section-header">
-          <div class="section-label">Portfolio</div>
-          <h2 class="section-title">Projects</h2>
-        </div>
-
-        <!-- Filter chips row -->
-        <div class="projects-filter-row">
-          <button class="filter-chip active" data-filter="all">All</button>
-          <button class="filter-chip" data-filter="frontend">Frontend</button>
-          <button class="filter-chip" data-filter="bot">Bot & AI</button>
-          <button class="filter-chip" data-filter="productivity">Productivity</button>
-        </div>
-
-        <!-- Project Cards Grid -->
-        <div class="projects-list">
-          
-          <!-- Project 1 -->
-          <div class="project-card-new" data-category="bot">
-            <div class="project-card-top">
-              <div class="project-icon-box blue">🤖</div>
-              <div class="project-card-info">
-                <h3 class="project-card-title">AI Telegram Assistant</h3>
-                <p class="project-card-desc">An intelligent Telegram bot capable of answering questions, generating content, and assisting users in real-time.</p>
-              </div>
-              <span class="project-status live">🟢 Live</span>
-            </div>
-            <div class="project-card-tags">
-              <span class="proj-tag">Python</span>
-              <span class="proj-tag">Telegram API</span>
-              <span class="proj-tag">AI Integration</span>
-            </div>
-            <div class="project-card-actions">
-              <a href="https://t.me/ShennCelest" target="_blank" class="proj-btn primary">
-                <span>Telegram</span>
-                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-              <a href="https://github.com" target="_blank" class="proj-btn secondary">GitHub</a>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card-new" data-category="frontend">
-            <div class="project-card-top">
-              <div class="project-icon-box navy">🛍️</div>
-              <div class="project-card-info">
-                <h3 class="project-card-title">Subscription Store</h3>
-                <p class="project-card-desc">A premium digital subscription marketplace website designed with advanced frosted glassmorphism themes.</p>
-              </div>
-              <span class="project-status wip">🟡 Coming Soon</span>
-            </div>
-            <div class="project-card-tags">
-              <span class="proj-tag">HTML5</span>
-              <span class="proj-tag">CSS Variables</span>
-              <span class="proj-tag">Vanilla JS</span>
-            </div>
-            <div class="project-card-actions">
-              <a href="#" class="proj-btn primary">
-                <span>Demo</span>
-                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-              <a href="https://github.com" target="_blank" class="proj-btn secondary">GitHub</a>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card-new" data-category="productivity">
-            <div class="project-card-top">
-              <div class="project-icon-box purple">🔑</div>
-              <div class="project-card-info">
-                <h3 class="project-card-title">Certificate Verifier</h3>
-                <p class="project-card-desc">Online certificate verification platform that validates credentials and generates unique verification IDs.</p>
-              </div>
-              <span class="project-status wip">🟡 WIP</span>
-            </div>
-            <div class="project-card-tags">
-              <span class="proj-tag">PHP</span>
-              <span class="proj-tag">SQL</span>
-              <span class="proj-tag">Bootstrap</span>
-            </div>
-            <div class="project-card-actions">
-              <a href="#" class="proj-btn primary">
-                <span>Preview</span>
-                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-              <a href="https://github.com" target="_blank" class="proj-btn secondary">GitHub</a>
-            </div>
-          </div>
-
-          <!-- Project 4 -->
-          <div class="project-card-new" data-category="productivity">
-            <div class="project-card-top">
-              <div class="project-icon-box green">🛠️</div>
-              <div class="project-card-info">
-                <h3 class="project-card-title">All-in-One Tools Hub</h3>
-                <p class="project-card-desc">A comprehensive web tools collection comprising developer widgets, math solvers, and productivity modules.</p>
-              </div>
-              <span class="project-status live">🟢 Live</span>
-            </div>
-            <div class="project-card-tags">
-              <span class="proj-tag">HTML</span>
-              <span class="proj-tag">CSS</span>
-              <span class="proj-tag">JavaScript</span>
-            </div>
-            <div class="project-card-actions">
-              <a href="./cybertools/index.html" class="proj-btn primary">
-                <span>Open</span>
-                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-              <a href="https://github.com" target="_blank" class="proj-btn secondary">GitHub</a>
-            </div>
-          </div>
-
-          <!-- Project 5 -->
-          <div class="project-card-new" data-category="frontend">
-            <div class="project-card-top">
-              <div class="project-icon-box orange">📄</div>
-              <div class="project-card-info">
-                <h3 class="project-card-title">CV Builder Platform</h3>
-                <p class="project-card-desc">Professional resume builder with downloadable templates, custom fields, and real-time frosted glass previews.</p>
-              </div>
-              <span class="project-status concept">⚪ Concept</span>
-            </div>
-            <div class="project-card-tags">
-              <span class="proj-tag">JavaScript</span>
-              <span class="proj-tag">HTML2PDF</span>
-              <span class="proj-tag">CSS Grid</span>
-            </div>
-            <div class="project-card-actions">
-              <a href="#" class="proj-btn primary">
-                <span>View</span>
-                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-              <a href="https://github.com" target="_blank" class="proj-btn secondary">GitHub</a>
-            </div>
-          </div>
-
-          <!-- Project 6 -->
-          <div class="project-card-new" data-category="bot">
-            <div class="project-card-top">
-              <div class="project-icon-box blue">🧰</div>
-              <div class="project-card-info">
-                <h3 class="project-card-title">MeyTool Web Suite</h3>
-                <p class="project-card-desc">A multi-module developer toolkit with JSON formatter, color picker, password generator, and 10+ productivity tools.</p>
-              </div>
-              <span class="project-status wip">🟡 Coming Soon</span>
-            </div>
-            <div class="project-card-tags">
-              <span class="proj-tag">HTML</span>
-              <span class="proj-tag">CSS</span>
-              <span class="proj-tag">JavaScript</span>
-            </div>
-            <div class="project-card-actions">
-              <a href="./cybertools/index.html" class="proj-btn primary">
-                <span>Open</span>
-                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-              </a>
-              <a href="https://github.com" target="_blank" class="proj-btn secondary">GitHub</a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- PANEL 5: RESUME -->
-      <section class="viewport-panel" id="panel-resume">
-        <div class="section-header">
-          <div class="section-label">My CV</div>
-          <h2 class="section-title">Resume</h2>
-        </div>
-
-        <!-- Download CV Card -->
-        <div class="resume-download-card">
+        <div class="resume-grid">
           <div>
-            <h3 class="resume-dl-title">Download My CV</h3>
-            <p class="resume-dl-sub">PDF · Updated 2026</p>
-          </div>
-          <button class="resume-dl-btn" id="cv-download-btn">⬇ Download</button>
-        </div>
-
-        <!-- Experience settings list -->
-        <div class="settings-list">
-          <div class="settings-list-header">Experience</div>
-          
-          <div class="settings-row">
-            <div class="settings-row-icon navy">💼</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">MIS Student Developer</span>
-              <span class="settings-row-sub">University · 2026 - Present</span>
+            <div class="resume-section-title">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+              <span>Education</span>
             </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-
-          <div class="settings-row">
-            <div class="settings-row-icon blue">🤖</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Bot Developer</span>
-              <span class="settings-row-sub">Freelance · 2023</span>
+            <div class="resume-item interactive-cv-item" id="edu-card-trigger" data-skill-linked="js,python,php,sql,telegram,ai,css,html">
+              <div class="resume-item-title" style="display:flex; justify-content:space-between; align-items:center;">
+                <span>Management Information Systems (MIS)</span>
+                <span class="expand-icon"><svg viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </div>
+              <div class="resume-item-subtitle">Cambodia University of Tech</div>
+              <p class="resume-item-desc">Focusing on business analytics, structured databases, software architectures, frontend systems, and API automation tools. <strong>Click to view coursework</strong></p>
+              
+              <!-- Expandable Coursework Drawer -->
+              <div class="cv-expanded-drawer" id="edu-cv-drawer">
+                <div class="drawer-inner-grid">
+                  <div class="course-badge">Database Management (SQL)</div>
+                  <div class="course-badge">Systems Analysis & Design</div>
+                  <div class="course-badge">Web Application Development</div>
+                  <div class="course-badge">Data Analytics & BI</div>
+                  <div class="course-badge">API & Bot Automation</div>
+                </div>
+              </div>
             </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
           </div>
-
-          <div class="settings-row">
-            <div class="settings-row-icon tg">🌐</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Web Developer</span>
-              <span class="settings-row-sub">Self-taught · 2026</span>
+          <div>
+            <div class="resume-section-title">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span>Experience</span>
             </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </div>
-
-        <!-- Education settings list -->
-        <div class="settings-list">
-          <div class="settings-list-header">Education</div>
-          
-          <div class="settings-row">
-            <div class="settings-row-icon purple">🎓</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Management Information Systems</span>
-              <span class="settings-row-sub">Bachelor's Degree · In Progress</span>
+            <div class="resume-item interactive-cv-item" id="exp-card-trigger" data-skill-linked="python,telegram,js,css,ai">
+              <div class="resume-item-title" style="display:flex; justify-content:space-between; align-items:center;">
+                <span>Freelance Developer & Automation Builder</span>
+                <span class="expand-icon"><svg viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg></span>
+              </div>
+              <div class="resume-item-subtitle">2024 - Present</div>
+              <p class="resume-item-desc">Developed Telegram bot interfaces, structured automations, and custom interactive frontend layouts using standard scripts. <strong>Click to view tool stack</strong></p>
+              
+              <!-- Expandable Experience Drawer -->
+              <div class="cv-expanded-drawer" id="exp-cv-drawer">
+                <div class="drawer-inner-grid">
+                  <div class="course-badge" style="border-color: rgba(6, 182, 212, 0.3); color: var(--accent-color);">python-telegram-bot</div>
+                  <div class="course-badge" style="border-color: rgba(6, 182, 212, 0.3); color: var(--accent-color);">Webhooks & Web APIs</div>
+                  <div class="course-badge">Asyncio & Concurrency</div>
+                  <div class="course-badge">JSON & SQLite</div>
+                  <div class="course-badge">Glassmorphism Frontends</div>
+                </div>
+              </div>
             </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-
-          <div class="settings-row">
-            <div class="settings-row-icon orange">📘</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Web Development</span>
-              <span class="settings-row-sub">Online Courses & Self-learning</span>
-            </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
           </div>
         </div>
 
-        <!-- Tech skills metrics settings list -->
-        <div class="settings-list">
-          <div class="settings-list-header">Technical Skills</div>
-          
-          <div class="settings-row">
-            <div class="settings-row-icon navy">💻</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Frontend</span>
-              <span class="settings-row-sub">HTML5, CSS3, JavaScript</span>
-            </div>
-            <span class="settings-row-value">Expert</span>
+        <div style="margin-top: 16px;">
+          <div class="resume-section-title">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <span>Core Skills</span>
           </div>
-
-          <div class="settings-row">
-            <div class="settings-row-icon blue">⚙️</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Backend</span>
-              <span class="settings-row-sub">PHP, Python, SQL</span>
-            </div>
-            <span class="settings-row-value">Intermediate</span>
-          </div>
-
-          <div class="settings-row">
-            <div class="settings-row-icon green">🤖</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Bot Dev</span>
-              <span class="settings-row-sub">Telegram API, Python</span>
-            </div>
-            <span class="settings-row-value">Advance</span>
+          <div class="resume-skills-tags">
+            <span class="skill-badge" data-skill="js">JavaScript</span>
+            <span class="skill-badge" data-skill="python">Python</span>
+            <span class="skill-badge" data-skill="php">PHP</span>
+            <span class="skill-badge" data-skill="telegram">Telegram Bot API</span>
+            <span class="skill-badge" data-skill="ai">AI Prompting</span>
+            <span class="skill-badge" data-skill="css">CSS Glassmorphic Layouts</span>
           </div>
         </div>
+      </div>
 
-        <!-- Hidden JSON pre for copying (action-cv matches this ID) -->
-        <pre id="terminal-code-block" style="display: none;">{
-  "name": "PENHPICH BORMEY",
-  "title": "MIS Student & Developer",
-  "location": "Phnom Penh, Cambodia",
-  "email": "pichpenhbormey383@gmail.com",
-  "telegram": "@ShennCelest",
-  "github": "github.com/bormey",
-  "experience": [
-    {
-      "role": "MIS Student Developer",
-      "organization": "University",
-      "period": "2026 - Present"
-    },
-    {
-      "role": "Bot Developer",
-      "organization": "Freelance",
-      "period": "2023"
-    },
-    {
-      "role": "Web Developer",
-      "organization": "Self-taught",
-      "period": "2026"
-    }
-  ],
-  "education": [
-    {
-      "degree": "Management Information Systems",
-      "institution": "University (Bachelor's Degree)",
-      "status": "In Progress"
-    },
-    {
-      "degree": "Web Development",
-      "institution": "Online Courses & Self-learning"
-    }
-  ],
-  "technical_skills": {
-    "frontend": {
-      "skills": ["HTML5", "CSS3", "JavaScript"],
-      "level": "Expert"
-    },
-    "backend": {
-      "skills": ["PHP", "Python", "SQL"],
-      "level": "Intermediate"
-    },
-    "bot_dev": {
-      "skills": ["Telegram API", "Python"],
-      "level": "Advance"
-    }
-  }
-}</pre>
-      </section>
-
-      <!-- PANEL 6: CONTACT -->
-      <section class="viewport-panel" id="panel-contact">
-        <div class="section-header">
-          <div class="section-label">Get in Touch</div>
-          <h2 class="section-title">Contact</h2>
-        </div>
-
-        <!-- Available card -->
-        <div class="contact-avail-card">
-          <div class="contact-avail-dot-row">
-            <span class="hero-dot"></span>
-            <span>Available for freelance & work</span>
+      <!-- Apple Developer Code Viewer (Hidden by Default) -->
+      <div class="resume-code-viewer" id="resume-terminal-area" style="display: none;">
+        <div class="viewer-header">
+          <div class="viewer-dots">
+            <span class="view-dot close"></span>
+            <span class="view-dot minimize"></span>
+            <span class="view-dot maximize"></span>
           </div>
-          <h3 class="contact-avail-heading">Let's Work Together</h3>
-          <p class="contact-avail-sub">Have a project or collaboration in mind? I'd love to hear from you!</p>
+          <div class="viewer-tab active">
+            <svg class="file-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>bormey_resume.json</span>
+          </div>
+          <div class="viewer-search">
+            <svg viewBox="0 0 24 24" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Find in file..." readonly value='"name": "PENHPICH BORMEY"'>
+          </div>
+          <button class="viewer-copy-btn" id="cv-copy-json-btn">
+            <svg viewBox="0 0 24 24" width="12" height="12"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copy</span>
+          </button>
         </div>
+        <div class="viewer-content">
+          <div class="line-numbers">
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+          </div>
+          <div class="code-area">
+            <pre><code id="terminal-code-block"><span class="token punctuation">{</span>
+  <span class="token key">"name"</span><span class="token punctuation">:</span> <span class="token string">"PENHPICH BORMEY"</span><span class="token punctuation">,</span>
+  <span class="token key">"title"</span><span class="token punctuation">:</span> <span class="token string">"MIS Student & Developer"</span><span class="token punctuation">,</span>
+  <span class="token key">"location"</span><span class="token punctuation">:</span> <span class="token string">"Phnom Penh, Cambodia"</span><span class="token punctuation">,</span>
+  <span class="token key">"education"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token key">"degree"</span><span class="token punctuation">:</span> <span class="token string">"Management Information Systems (MIS)"</span><span class="token punctuation">,</span>
+      <span class="token key">"institution"</span><span class="token punctuation">:</span> <span class="token string">"Cambodia University of Tech"</span><span class="token punctuation">,</span>
+      <span class="token key">"focus"</span><span class="token punctuation">:</span> <span class="token string">"Business Analytics, Databases, APIs & Frontend"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token key">"experience"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token key">"role"</span><span class="token punctuation">:</span> <span class="token string">"Freelance Developer & Automation Builder"</span><span class="token punctuation">,</span>
+      <span class="token key">"period"</span><span class="token punctuation">:</span> <span class="token string">"2024 - Present"</span><span class="token punctuation">,</span>
+      <span class="token key">"skills_applied"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"Telegram API"</span><span class="token punctuation">,</span> <span class="token string">"Python"</span><span class="token punctuation">,</span> <span class="token string">"JS"</span><span class="token punctuation">,</span> <span class="token string">"CSS"</span><span class="token punctuation">,</span> <span class="token string">"AI"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token key">"skills"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token key">"frontend"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"HTML5"</span><span class="token punctuation">,</span> <span class="token string">"CSS3"</span><span class="token punctuation">,</span> <span class="token string">"JavaScript"</span><span class="token punctuation">,</span> <span class="token string">"Glassmorphism"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token key">"backend"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"Python"</span><span class="token punctuation">,</span> <span class="token string">"PHP"</span><span class="token punctuation">,</span> <span class="token string">"SQL"</span><span class="token punctuation">,</span> <span class="token string">"API Integrations"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token key">"automation"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"Telegram Bot API"</span><span class="token punctuation">,</span> <span class="token string">"Webhooks"</span><span class="token punctuation">,</span> <span class="token string">"AI Prompt Engineering"</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="animated-caret"></span></code></pre>
+          </div>
+          <div class="code-minimap">
+            <div class="minimap-visible-area"></div>
+            <div class="minimap-line-mock short"></div>
+            <div class="minimap-line-mock long"></div>
+            <div class="minimap-line-mock medium"></div>
+            <div class="minimap-line-mock indent long"></div>
+            <div class="minimap-line-mock indent short"></div>
+            <div class="minimap-line-mock indent medium"></div>
+            <div class="minimap-line-mock indent long"></div>
+            <div class="minimap-line-mock indent short"></div>
+            <div class="minimap-line-mock long"></div>
+            <div class="minimap-line-mock medium"></div>
+          </div>
+        </div>
+      </div>
 
-        <!-- Reach Me Settings List -->
-        <div class="settings-list">
-          <div class="settings-list-header">Reach Me</div>
-          
-          <a href="https://t.me/ShennCelest" target="_blank" class="settings-row">
-            <div class="settings-row-icon tg">📨</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Telegram</span>
-              <span class="settings-row-sub">@ShennCelest</span>
+      <!-- Learning Timeline -->
+      <div class="timeline-card">
+        <h3>Learning Journey</h3>
+        <div class="timeline-tree">
+          <div class="timeline-node">
+            <span class="timeline-dot"></span>
+            <span class="timeline-year">2024</span>
+            <h4 class="timeline-node-title">Started Learning Web Dev</h4>
+            <p class="timeline-node-desc">Began studying HTML, CSS, JavaScript, and responsive layouts.</p>
+          </div>
+          <div class="timeline-node">
+            <span class="timeline-dot"></span>
+            <span class="timeline-year">2025</span>
+            <h4 class="timeline-node-title">Created Multiple Website Projects</h4>
+            <p class="timeline-node-desc">Constructed portfolio, e-commerce prototypes, and digital stores.</p>
+          </div>
+          <div class="timeline-node">
+            <span class="timeline-dot"></span>
+            <span class="timeline-year">2025</span>
+            <h4 class="timeline-node-title">Telegram Bot Development</h4>
+            <p class="timeline-node-desc">Explored APIs, Python automation, and web integrations for chatbots.</p>
+          </div>
+          <div class="timeline-node">
+            <span class="timeline-dot"></span>
+            <span class="timeline-year">2026</span>
+            <h4 class="timeline-node-title">AI Tools & Automation</h4>
+            <p class="timeline-node-desc">Building automated systems with prompt engineering and APIs.</p>
+          </div>
+          <div class="timeline-node future">
+            <span class="timeline-dot"></span>
+            <span class="timeline-year">Future</span>
+            <h4 class="timeline-node-title">Full Stack & AI Engineer</h4>
+            <p class="timeline-node-desc">Pioneering full stack digital systems integrated with smart models.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+     6. CONTACT SECTION (SPLIT DETAILS + INLINE FORM)
+     ============================================= -->
+  <section class="section-container" id="contact">
+    <div class="section-card">
+      <div class="section-title-wrap">
+        <span class="sec-subtitle">Get in Touch</span>
+        <h2 class="sec-title">Contact</h2>
+      </div>
+
+      <div class="contact-card-grid">
+        <div class="contact-info-panel">
+          <p style="font-size:0.875rem; line-height:1.5; color:var(--text-secondary); margin-bottom:12px;">
+            Have a project, job inquiry, or want to collaborate? Send a message and let's work together!
+          </p>
+
+          <a href="https://t.me/ShennCelest" target="_blank" class="contact-info-item">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 24 24"><path d="M21.5 2L2 11.5l6.8 1.7L18 5.5l-8.5 7.5v5.3l3-2.8 5.5 4.7z"/></svg>
             </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Telegram</span>
+              <span class="contact-info-val">t.me/ShennCelest</span>
+            </div>
           </a>
 
-          <a href="mailto:pichpenhbormey383@gmail.com" class="settings-row">
-            <div class="settings-row-icon email">📧</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Email</span>
-              <span class="settings-row-sub">pichpenhbormey383@gmail.com</span>
+          <div class="contact-info-item">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
-
-          <a href="https://m.me/JaxFrez" target="_blank" class="settings-row">
-            <div class="settings-row-icon blue">💬</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Messenger</span>
-              <span class="settings-row-sub">m.me/JaxFrez</span>
-            </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
-
-          <a href="https://www.facebook.com/share/1DzJagzVRs/" target="_blank" class="settings-row">
-            <div class="settings-row-icon web">🌐</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Facebook</span>
-              <span class="settings-row-sub">Penhpich Bormey</span>
-            </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
-
-          <a href="https://github.com" target="_blank" class="settings-row">
-            <div class="settings-row-icon gh">🐙</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">GitHub</span>
-              <span class="settings-row-sub">github.com/bormey</span>
-            </div>
-            <svg class="settings-row-chevron" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
-
-          <div class="settings-row">
-            <div class="settings-row-icon loc">📍</div>
-            <div class="settings-row-text">
-              <span class="settings-row-label">Location</span>
-              <span class="settings-row-sub">Phnom Penh, Cambodia 🇰🇭</span>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Location</span>
+              <span class="contact-info-val">Cambodia</span>
             </div>
           </div>
         </div>
 
-        <!-- Contact Form Card -->
-        <div class="contact-form-card">
-          <h3 class="contact-form-title">Send a Message</h3>
-          <form id="contact-form-new" action="#" onsubmit="event.preventDefault();">
-            <div class="input-field-wrap">
-              <input type="text" class="input-field" id="emb-name" placeholder="Your Name" required>
+        <div class="contact-form-panel">
+          <form id="embedded-contact-form" style="display:flex; flex-direction:column; gap:16px;">
+            <div class="input-group">
+              <input type="text" id="emb-name" required placeholder=" ">
+              <label for="emb-name">Your Name</label>
             </div>
-            <div class="input-field-wrap">
-              <input type="email" class="input-field" id="emb-email" placeholder="Your Email" required>
+            <div class="input-group">
+              <input type="email" id="emb-email" required placeholder=" ">
+              <label for="emb-email">Email Address</label>
             </div>
-            <div class="input-field-wrap">
-              <input type="text" class="input-field" id="emb-subject" placeholder="Subject" required>
+            <div class="input-group">
+              <input type="text" id="emb-subject" required placeholder=" ">
+              <label for="emb-subject">Subject</label>
             </div>
-            <div class="input-field-wrap">
-              <textarea class="input-field" id="emb-message" placeholder="Message" required></textarea>
+            <div class="input-group">
+              <textarea id="emb-message" required placeholder=" " rows="4"></textarea>
+              <label for="emb-message">Message</label>
             </div>
-            <button class="submit-btn-new" id="emb-submit-btn" type="submit">
+            
+            <button type="submit" class="cta-btn submit-btn" id="emb-submit-btn">
               <span>Send Message</span>
-              <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <svg viewBox="0 0 24 24" class="send-icon"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </button>
           </form>
         </div>
-      </section>
+      </div>
 
-    </main>
+    </div>
+  </section>
 
-    <!-- BOTTOM TAB NAVIGATION -->
-    <nav class="bottom-nav">
-      <button class="bottom-nav-btn active" data-view="dashboard" title="Dashboard">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span class="nav-label">Dashboard</span>
-      </button>
-      <button class="bottom-nav-btn" data-view="about" title="About">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <span class="nav-label">About</span>
-      </button>
-      <button class="bottom-nav-btn" data-view="skills" title="Skills">
-        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        <span class="nav-label">Skills</span>
-      </button>
-      <button class="bottom-nav-btn" data-view="projects" title="Projects">
-        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        <span class="nav-label">Projects</span>
-      </button>
-      <button class="bottom-nav-btn" data-view="resume" title="Resume">
-        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        <span class="nav-label">Resume</span>
-      </button>
-      <button class="bottom-nav-btn" data-view="contact" title="Contact">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span class="nav-label">Contact</span>
-      </button>
-    </nav>
+  <!-- =============================================
+     7. FOOTER SECTION
+     ============================================= -->
+  <footer class="footer-section">
+    <div class="footer-brand">PENHPICH BORMEY</div>
+    <div class="footer-tagline">MIS Student • Web Developer • Telegram Bot Creator</div>
+    <ul class="footer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-copyright">
+      © 2026 PENHPICH BORMEY. All Rights Reserved.
+    </div>
+  </footer>
 
+  <!-- =============================================
+     MODAL & OVERLAY POPUPS (DOCK SHORTCUTS)
+     ============================================= -->
+  <!-- Glassmorphic CyberTools App Window Overlay -->
+  <div id="cybertools-overlay" class="window-overlay">
+    <div class="glass-app-window">
+      <div class="window-header">
+        <div class="window-dots">
+          <span class="window-dot dot-close" id="cybertools-close-btn" title="Close">
+            <svg viewBox="0 0 12 12"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="window-dot dot-minimize" id="cybertools-min-btn" title="Minimize">
+            <svg viewBox="0 0 12 12"><path d="M2.5 6h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <span class="window-dot dot-maximize" id="cybertools-max-btn" title="Maximize">
+            <svg viewBox="0 0 12 12"><path d="M8.5 3.5h-3v3M3.5 8.5h3v-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+          </span>
+        </div>
+        <div class="window-url-bar">meytool://portfolio/dashboard</div>
+      </div>
+      <div class="window-body">
+        <iframe data-src="./cybertools/index.html" id="cybertools-iframe" title="MeyTool App Workspace"></iframe>
+      </div>
+    </div>
   </div>
 
-  <!-- TOAST CONTAINER -->
+  <!-- Glassmorphic Contact Modal Overlay and Card -->
+  <div id="contact-overlay">
+    <div id="contact-modal">
+      <button id="contact-close-btn" aria-label="Close Contact Form">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      
+      <div class="contact-header">
+        <h2>Get in Touch</h2>
+        <p>Send a secure message direct to my terminal.</p>
+      </div>
+      
+      <form id="contact-form">
+        <div class="input-group">
+          <input type="text" id="contact-name" required placeholder=" ">
+          <label for="contact-name">Your Name</label>
+        </div>
+        <div class="input-group">
+          <input type="email" id="contact-email" required placeholder=" ">
+          <label for="contact-email">Email Address</label>
+        </div>
+        <div class="input-group">
+          <textarea id="contact-message" required placeholder=" " rows="4"></textarea>
+          <label for="contact-message">Message</label>
+        </div>
+        
+        <button type="submit" class="cta-btn submit-btn" id="contact-submit-btn">
+          <span>Send Message</span>
+          <svg viewBox="0 0 24 24" class="send-icon"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- macOS-inspired Glass Dock Menu -->
+  <div class="dock-wrapper">
+    <div class="dock">
+      <a href="#home" class="dock-item" data-tooltip="Home" aria-label="Home Card">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </a>
+      <a href="#about" class="dock-item" data-tooltip="About" aria-label="About Section">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a href="#skills" class="dock-item" data-tooltip="Skills" aria-label="Skills Stack">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </a>
+      <a href="#projects" class="dock-item" data-tooltip="Projects" aria-label="Projects Listing">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      </a>
+      <a href="#resume" class="dock-item" data-tooltip="Resume" aria-label="CV Resume">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </a>
+      <a href="./cybertools/index.html" class="dock-item" data-tooltip="CyberTools" aria-label="CyberTools App">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="m10 7 2 2-2 2"/></svg>
+      </a>
+      <a href="#contact" class="dock-item" data-tooltip="Contact" aria-label="Contact Section">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Toast Notification Deck -->
   <div id="toast-container"></div>
 
-  <!-- NOTIFICATION DROPDOWN -->
-  <div class="notif-dropdown" id="spatial-notification-panel">
-    <div class="notif-header">
-      <span class="notif-header-title">Notifications</span>
-      <span class="notif-clear-btn" id="clear-notifications">Clear All</span>
-    </div>
-    <div class="notification-list">
-      <div class="notif-item">
-        <div class="notif-item-dot warning"></div>
-        <div>
-          <span class="notif-item-title">Demo Notice</span>
-          <span class="notif-item-desc">Some functions (e.g. CV Download/Print, form submission) may not fully work on GitHub Pages.</span>
-        </div>
-      </div>
-      <div class="notif-item">
-        <div class="notif-item-dot"></div>
-        <div>
-          <span class="notif-item-title">MeyTool Suite Launched</span>
-          <span class="notif-item-desc">Try out the new multi-module tools suite live.</span>
-        </div>
-      </div>
-      <div class="notif-item">
-        <div class="notif-item-dot"></div>
-        <div>
-          <span class="notif-item-title">Welcome to my Portfolio</span>
-          <span class="notif-item-desc">Browse my MIS student timeline, bots and coding stack.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <!-- Logic Execution -->
+  <script src="script.js"></script>
 </body>
 </html>
