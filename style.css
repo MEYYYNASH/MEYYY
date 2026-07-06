@@ -68,6 +68,9 @@
   --url-bar-bg: rgba(15, 23, 42, 0.05);
   --url-bar-border: rgba(15, 23, 42, 0.08);
   --url-bar-text: var(--text-secondary);
+  --badge-bg: rgba(15, 23, 42, 0.05);
+  --badge-border: rgba(15, 23, 42, 0.08);
+  --badge-text: var(--text-secondary);
 }
 
 [data-theme="dark"] {
@@ -129,6 +132,9 @@
   --url-bar-bg: rgba(255, 255, 255, 0.05);
   --url-bar-border: rgba(255, 255, 255, 0.08);
   --url-bar-text: rgba(255, 255, 255, 0.65);
+  --badge-bg: rgba(255, 255, 255, 0.06);
+  --badge-border: rgba(255, 255, 255, 0.08);
+  --badge-text: rgba(255, 255, 255, 0.7);
 }
 
 html {
@@ -2007,9 +2013,9 @@ body {
 .skill-badge {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--card-border);
+  color: var(--badge-text);
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
   padding: 6px 12px;
   border-radius: 30px;
   transition: var(--transition-fast);
@@ -3256,14 +3262,14 @@ body {
 }
 
 /* visionOS dynamic skill badge lifts */
-.skill-badge {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+.resume-skills-tags .skill-badge {
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
   border-radius: 12px;
   padding: 8px 16px;
   font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--badge-text);
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
               background 0.3s ease, 
@@ -3293,9 +3299,9 @@ body {
 }
 
 @media (hover: hover) {
-  .skill-badge:hover {
+  .resume-skills-tags .skill-badge:hover {
     transform: translateY(-4px) scale(1.08);
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--badge-accent);
     border-color: var(--badge-accent);
     color: #FFFFFF;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   // --- Core Elements ---
   const body = document.body;
   const cursorGlow = document.getElementById('cursor-glow');
@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "#about .achievement-card:nth-child(3) p": "Integrating automation and prompt engineering to improve user workflows.",
       "#about .achievement-card:nth-child(4) h3": "MIS Student Developer",
       "#about .achievement-card:nth-child(4) p": "Bridging technology with business analytics to construct structured platforms.",
-      "#about .achievement-card:nth-child(5) h3": "UI/UX Enthusiast",
-      "#about .achievement-card:nth-child(5) p": "Crafting sleek design paradigms with premium glassmorphism layouts.",
+      "#about .achievement-card:nth-child(5) h3": "Glassmorphism UI Designer",
+      "#about .achievement-card:nth-child(5) p": "I design beautiful interfaces using the glassmorphism style — frosted glass panels, blurred backgrounds, and soft glowing effects that feel premium and modern.",
       "#skills .sec-subtitle": "My Stack",
       "#skills .sec-title": "My Skills",
       "#projects .sec-subtitle": "Portfolio",
@@ -177,8 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "#about .achievement-card:nth-child(3) p": "បញ្ចូលស្វ័យប្រវត្តិកម្ម និងវិស្វកម្មរហ័ស (prompt engineering) ដើម្បីកែលម្អលំហូរការងាររបស់អ្នកប្រើប្រាស់។",
       "#about .achievement-card:nth-child(4) h3": "អ្នកអភិវឌ្ឍន៍ដែលជានិស្សិត MIS",
       "#about .achievement-card:nth-child(4) p": "ភ្ជាប់បច្ចេកវិទ្យាជាមួយការវិភាគអាជីវកម្ម ដើម្បីបង្កើតវេទិកាដែលមានរចនាសម្ព័ន្ធល្អ។",
-      "#about .achievement-card:nth-child(5) h3": "អ្នកស្រឡាញ់ UI/UX",
-      "#about .achievement-card:nth-child(5) p": "បង្កើតទម្រង់រចនាដ៏ទាក់ទាញ ជាមួយប្លង់កញ្ចក់ថ្លាដ៏ប្រណិត (glassmorphism)។",
+      "#about .achievement-card:nth-child(5) h3": "អ្នករចនា UI ស្តីល Glassmorphism",
+      "#about .achievement-card:nth-child(5) p": "ខ្ញុំរចនាចំណុចប្រទាក់ដ៏ស្រស់ស្អាត ដោយប្រើស្ទីល Glassmorphism — បន្ទះកញ្ចក់ frosted glass ផ្ទៃខាងក្រោយព្រិលខ្ចាយ និងប្រដាប់ពន្លឺទន់ ដែលមានអារម្មណ៍ប្រណិត និងទំនើប។",
       "#skills .sec-subtitle": "បច្ចេកវិទ្យាខ្ញុំប្រើ",
       "#skills .sec-title": "ជំនាញរបស់ខ្ញុំ",
       "#projects .sec-subtitle": "ស្នាដៃរបស់ខ្ញុំ",
