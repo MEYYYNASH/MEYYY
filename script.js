@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   // --- Core Elements ---
   const body = document.body;
   const cursorGlow = document.getElementById('cursor-glow');
@@ -11,7 +11,7 @@
   const ctx = canvas.getContext('2d');
 
   // --- Theme Management ---
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
   body.setAttribute('data-theme', savedTheme);
 
   themeToggleBtn.addEventListener('click', () => {
@@ -20,11 +20,36 @@
     body.setAttribute('data-theme', newTheme);
     localStorage.setItem('portfolio-theme', newTheme);
     
-    showToast(
-      'Theme Updated', 
-      `Switched to ${newTheme.charAt(0).toUpperCase() + newTheme.slice(1)} Mode`
-    );
+    const isKh = (localStorage.getItem('portfolio-lang') || 'en') === 'kh';
+    if (newTheme === 'light') {
+      showToast(
+        isKh ? 'បានប្តូរទៅ Light Mode' : 'Switched to Light Mode',
+        isKh 
+          ? 'ណែនាំ៖ ប្រើប្រាស់ Dark Mode ដើម្បីទទួលបានរូបភាពកញ្ចក់ថ្លាល្អបំផុត!'
+          : 'Tip: Switch to Dark Mode for the best glassmorphism experience!',
+        'warning'
+      );
+    } else {
+      showToast(
+        isKh ? 'បានប្តូរទៅ Dark Mode' : 'Theme Updated', 
+        isKh ? 'បានផ្លាស់ប្តូរទៅជា Dark Mode ជោគជ័យ' : 'Switched to Dark Mode Successfully'
+      );
+    }
   });
+
+  // If page loads in light theme, suggest switching to dark mode
+  if (savedTheme === 'light') {
+    setTimeout(() => {
+      const isKh = (localStorage.getItem('portfolio-lang') || 'en') === 'kh';
+      showToast(
+        isKh ? 'ណែនាំឱ្យប្រើ Dark Mode' : 'Dark Mode Recommended',
+        isKh 
+          ? 'ដើម្បីទទួលបានបទពិសោធន៍មើលឃើញប្លង់កញ្ចក់ថ្លាល្អបំផុត សូមប្រើប្រាស់ Dark Mode។'
+          : 'For the best glassmorphism visual experience, please use Dark Mode.',
+        'info'
+      );
+    }, 3500);
+  }
 
   // --- Language Translation System ---
   const translations = {
