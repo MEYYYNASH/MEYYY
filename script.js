@@ -143,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "label[for='form-subject']": "Subject",
       "label[for='form-message']": "Your Message",
       "#emb-submit-btn span.btn-text": "Send Message",
+      "#contact-messenger-label": "Messenger",
       ".copyright-area": "© 2026 BORMEY.DEV. All Rights Reserved."
     },
     kh: {
@@ -223,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "label[for='form-subject']": "ប្រធានបទ",
       "label[for='form-message']": "សាររបស់អ្នក",
       "#emb-submit-btn span.btn-text": "ផ្ញើសារចេញ",
+      "#contact-messenger-label": "ម៉ែសសិនជ័រ",
       ".copyright-area": "© ២០២៦ បូរមី.DEV។ រក្សាសិទ្ធិគ្រប់យ៉ាង។"
     }
   };
@@ -952,35 +954,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const skillBadges = document.querySelectorAll('.skill-badge[data-skill]');
   const linkedElements = document.querySelectorAll('[data-skill-linked]');
 
-  skillBadges.forEach(badge => {
-    const skill = badge.getAttribute('data-skill');
-    if (!skill) return;
+  if (!isTouchDevice) {
+    skillBadges.forEach(badge => {
+      const skill = badge.getAttribute('data-skill');
+      if (!skill) return;
 
-    badge.addEventListener('mouseenter', () => {
-      // Capture the HSL/HEX accent color of the hovered badge
-      const badgeAccent = getComputedStyle(badge).getPropertyValue('--badge-accent').trim();
-      
-      linkedElements.forEach(el => {
-        const linkedSkills = el.getAttribute('data-skill-linked').split(',');
-        if (linkedSkills.includes(skill)) {
-          el.classList.add('skill-highlight');
-          if (badgeAccent) {
-            // Apply matching glow spotlight to related cards
-            el.style.setProperty('--accent-color', badgeAccent);
-            el.style.setProperty('--accent-glow', `${badgeAccent}26`); /* ~15% opacity */
+      badge.addEventListener('mouseenter', () => {
+        // Capture the HSL/HEX accent color of the hovered badge
+        const badgeAccent = getComputedStyle(badge).getPropertyValue('--badge-accent').trim();
+        
+        linkedElements.forEach(el => {
+          const linkedSkills = el.getAttribute('data-skill-linked').split(',');
+          if (linkedSkills.includes(skill)) {
+            el.classList.add('skill-highlight');
+            if (badgeAccent) {
+              // Apply matching glow spotlight to related cards
+              el.style.setProperty('--accent-color', badgeAccent);
+              el.style.setProperty('--accent-glow', `${badgeAccent}26`); /* ~15% opacity */
+            }
           }
-        }
+        });
       });
-    });
 
-    badge.addEventListener('mouseleave', () => {
-      linkedElements.forEach(el => {
-        el.classList.remove('skill-highlight');
-        el.style.removeProperty('--accent-color');
-        el.style.removeProperty('--accent-glow');
+      badge.addEventListener('mouseleave', () => {
+        linkedElements.forEach(el => {
+          el.classList.remove('skill-highlight');
+          el.style.removeProperty('--accent-color');
+          el.style.removeProperty('--accent-glow');
+        });
       });
     });
-  });
+  }
 
   // --- Auto-Hide Menu & Dock on Scroll ---
   let lastScrollY = window.scrollY;

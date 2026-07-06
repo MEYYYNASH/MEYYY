@@ -2010,10 +2010,12 @@ body {
   transition: var(--transition-fast);
 }
 
-.skill-badge:hover {
-  background: var(--accent-color);
-  color: #ffffff;
-  border-color: var(--accent-color);
+@media (hover: hover) {
+  .skill-badge:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+  }
 }
 
 /* Progress bars layout */
@@ -3285,13 +3287,15 @@ body {
   --badge-accent: #FF453A; /* Red/Pink */
 }
 
-.skill-badge:hover {
-  transform: translateY(-4px) scale(1.08);
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--badge-accent);
-  color: #FFFFFF;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 
-              0 0 15px rgba(255, 255, 255, 0.05);
+@media (hover: hover) {
+  .skill-badge:hover {
+    transform: translateY(-4px) scale(1.08);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--badge-accent);
+    color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 
+                0 0 15px rgba(255, 255, 255, 0.05);
+  }
 }
 
 /* Media Query Overrides for Mobile */
